@@ -1,3 +1,38 @@
-[gd_scene format=3 uid="uid://cndbka18i0n67"]
+[gd_scene load_steps=9 format=3 uid="uid://cndbka18i0n67"]
 
-[node name="Bullet" type="Sprite2D"]
+[ext_resource type="Script" uid="uid://cvcklhfcadhfg" path="res://components/tanks/bullet.gd" id="1_bo8qh"]
+[ext_resource type="Texture2D" uid="uid://bufbx8eyu1uti" path="res://resources/images/tankAll.png" id="2_vg3hx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vg3hx"]
+atlas = ExtResource("2_vg3hx")
+region = Rect2(81, 96, 4, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn3ne"]
+atlas = ExtResource("2_vg3hx")
+region = Rect2(87, 97, 4, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axvhh"]
+atlas = ExtResource("2_vg3hx")
+region = Rect2(92, 97, 5, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lxl1"]
+atlas = ExtResource("2_vg3hx")
+region = Rect2(99, 97, 5, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3clf"]
+atlas = ExtResource("2_vg3hx")
+region = Rect2(81, 96, 4, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo8qh"]
+size = Vector2(6, 6)
+
+[node name="Bullet" type="CharacterBody2D"]
+script = ExtResource("1_bo8qh")
+speed = 150.0
+bulletImgs = Array[AtlasTexture]([SubResource("AtlasTexture_vg3hx"), SubResource("AtlasTexture_wn3ne"), SubResource("AtlasTexture_axvhh"), SubResource("AtlasTexture_3lxl1")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_r3clf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bo8qh")
