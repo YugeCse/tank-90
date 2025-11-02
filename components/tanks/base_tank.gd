@@ -1,0 +1,65 @@
+extends CharacterBody2D
+
+# 坦克基类
+class_name BaseTank
+
+# 坦克类型
+@export
+var tankType: Enums.TankType
+
+# 方向图片
+@export
+var dirImages: Array[Texture2D]
+
+# 速度
+var speed: float = 100.0
+
+# 要绑定的精灵对象
+var sprite: Sprite2D
+
+# 上一次的有效方向
+var _lastEffectiveVelocity: Vector2 = Vector2.UP
+
+# 为玩家的准备逻辑
+func ready_for_player():
+	set_process_input(true)
+	if tankType != Enums.TankType.PLAYER: 
+		_lastEffectiveVelocity = Vector2.DOWN
+	update_sprite_by_dir(_lastEffectiveVelocity)
+
+# 处理方向控制
+func handle_input_process_for_player(dt: float) -> void:
+	# 获取输入方向向量（已标准化）
+	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	velocity = input_direction
+	if input_direction != Vector2.ZERO:
+		update_sprite_by_dir(input_direction)
+		_lastEffectiveVelocity = input_direction
+	set_position_limits() #设置坐标数据限制
+
+# 设置坐标数据限制
+func set_position_limits():
+	var vCenter = get_viewport().get_visible_rect().get_center()
+	var min_posi = Vector2(\
+		vCenter.x - Constants.WAR_MAP_SIZE / 2.0,
+		vCenter.y - Constants.WAR_MAP_SIZE / 2.0)\
+		+ Vector2(Constants.WAR_SPRITE_SIZE, Constants.WAR_SPRITE_SIZE)
+	var max_posi = Vector2(\
+		vCenter.x + Constants.WAR_MAP_SIZE / 2.0,
+		vCenter.y + Constants.WAR_MAP_SIZE / 2.0)\
+		- Vector2(Constants.WAR_SPRITE_SIZE, Constants.WAR_SPRITE_SIZE)
+	position = position.clamp(min_posi, max_posi)
+
+# 根据方向更新精灵图片
+func update_sprite_by_dir(newDir: Vector2):
+	var index = 0
+	if newDir == Vector2.UP:
+		index = 0
+	elif newDir == Vector2.DOWN:
+		index = 1
+	elif newDir == Vector2.LEFT:
+		index = 2
+	elif newDir == Vector2.RIGHT:
+		index = 3
+	else: return #错误的方向不设置
+	sprite.texture = dirImages[index]

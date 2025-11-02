@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3ta5mwjvjut7"]
+
+[ext_resource type="Texture2D" uid="uid://bufbx8eyu1uti" path="res://resources/images/tankAll.png" id="1_g1n4a"]
+[ext_resource type="Script" uid="uid://bytstsvw6lomg" path="res://components/map/tile/steel_wall_map_tile.gd" id="2_g1n4a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gbar"]
+atlas = ExtResource("1_g1n4a")
+region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmrrg"]
+size = Vector2(16, 16)
+
+[node name="SteelWallMapTile" type="Sprite2D"]
+texture = SubResource("AtlasTexture_3gbar")
+script = ExtResource("2_g1n4a")
+metadata/_custom_type_script = "uid://r7aoku3ycxxy"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 864
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_xmrrg")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1d63weueonhv"]
+
+[ext_resource type="Texture2D" uid="uid://bufbx8eyu1uti" path="res://resources/images/tankAll.png" id="1_aum6k"]
+[ext_resource type="Script" uid="uid://d00k4kgwfj7ww" path="res://components/map/tile/river_map_tile.gd" id="2_aum6k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15qxg"]
+atlas = ExtResource("1_aum6k")
+region = Rect2(48, 96, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aum6k"]
+size = Vector2(16, 16)
+
+[node name="RiverMapTile" type="Sprite2D"]
+texture = SubResource("AtlasTexture_15qxg")
+script = ExtResource("2_aum6k")
+tileType = 3
+metadata/_custom_type_script = "uid://r7aoku3ycxxy"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 96
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_aum6k")

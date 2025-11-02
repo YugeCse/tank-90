@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://vaetahb8n7hx"]
+
+[ext_resource type="Texture2D" uid="uid://bufbx8eyu1uti" path="res://resources/images/tankAll.png" id="1_n1koi"]
+[ext_resource type="Script" uid="uid://o4advwl5utrg" path="res://components/tanks/enemy_tank.gd" id="1_qgtpy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1koi"]
+atlas = ExtResource("1_n1koi")
+region = Rect2(3, 35, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2w5f"]
+atlas = ExtResource("1_n1koi")
+region = Rect2(35, 35, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6eqh"]
+atlas = ExtResource("1_n1koi")
+region = Rect2(67, 35, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1unpi"]
+atlas = ExtResource("1_n1koi")
+region = Rect2(99, 35, 26, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgtpy"]
+size = Vector2(28, 28)
+
+[node name="EnemyTank" type="CharacterBody2D"]
+collision_layer = 64
+collision_mask = 287
+script = ExtResource("1_qgtpy")
+tankType = 1
+dirImages = Array[Texture2D]([SubResource("AtlasTexture_n1koi"), SubResource("AtlasTexture_m2w5f"), SubResource("AtlasTexture_e6eqh"), SubResource("AtlasTexture_1unpi")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qgtpy")

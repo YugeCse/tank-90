@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://p2b0gqr6h422"]
+
+[ext_resource type="Script" uid="uid://k6e6h42edvtq" path="res://components/map/war_map.gd" id="1_i8xhm"]
+
+[node name="WarMap" type="Node2D"]
+script = ExtResource("1_i8xhm")

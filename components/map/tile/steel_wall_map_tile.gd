@@ -1,0 +1,3 @@
+extends BaseMapTile
+
+class_name SteelWallMapTile

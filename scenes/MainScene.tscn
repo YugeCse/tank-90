@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjmeeamhfrc5k"]
+
+[ext_resource type="Script" uid="uid://dmfh2ke02c4m6" path="res://scenes/main_scene.gd" id="1_echbf"]
+[ext_resource type="Script" uid="uid://k6e6h42edvtq" path="res://components/map/war_map.gd" id="2_611at"]
+[ext_resource type="PackedScene" uid="uid://rw1sek6mi12e" path="res://components/tanks/PlayerTank.tscn" id="3_c6dvc"]
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource("1_echbf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 750
+limit_bottom = 416
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 167.0
+offset_right = 583.0
+offset_bottom = 416.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 1)
+
+[node name="WarMap" type="Node2D" parent="Camera2D"]
+position = Vector2(167, 16)
+script = ExtResource("2_611at")
+metadata/_custom_type_script = "uid://k6e6h42edvtq"
+
+[node name="PlayerTank" parent="Camera2D" instance=ExtResource("3_c6dvc")]
+tankType = 0

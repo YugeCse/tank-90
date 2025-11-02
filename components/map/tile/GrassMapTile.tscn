@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://pgw0kk7p67cd"]
+
+[ext_resource type="Script" uid="uid://djf4ifrmldssp" path="res://components/map/tile/grass_map_tile.gd" id="1_5a5jo"]
+[ext_resource type="Texture2D" uid="uid://bufbx8eyu1uti" path="res://resources/images/tankAll.png" id="1_vqkhc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnunp"]
+atlas = ExtResource("1_vqkhc")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5a5jo"]
+size = Vector2(16, 16)
+
+[node name="GrassMapTile" type="Sprite2D"]
+texture = SubResource("AtlasTexture_mnunp")
+script = ExtResource("1_5a5jo")
+tileType = 2
+metadata/_custom_type_script = "uid://r7aoku3ycxxy"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_5a5jo")

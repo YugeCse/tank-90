@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://rw1sek6mi12e"]
+
+[ext_resource type="Script" uid="uid://cdtrsvjr7ssmc" path="res://components/tanks/player_tank.gd" id="1_y6v7n"]
+[ext_resource type="Texture2D" uid="uid://bufbx8eyu1uti" path="res://resources/images/tankAll.png" id="2_y6v7n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7134c"]
+atlas = ExtResource("2_y6v7n")
+region = Rect2(3, 3, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qguq5"]
+atlas = ExtResource("2_y6v7n")
+region = Rect2(35, 3, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8gjx"]
+atlas = ExtResource("2_y6v7n")
+region = Rect2(67, 3, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bamnf"]
+atlas = ExtResource("2_y6v7n")
+region = Rect2(99, 3, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6v7n"]
+atlas = ExtResource("2_y6v7n")
+region = Rect2(3, 3, 26, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6v7n"]
+size = Vector2(28, 28)
+
+[node name="PlayerTank" type="CharacterBody2D"]
+collision_layer = 32
+collision_mask = 619
+platform_floor_layers = 4294966420
+platform_wall_layers = 107
+script = ExtResource("1_y6v7n")
+dirImages = Array[Texture2D]([SubResource("AtlasTexture_7134c"), SubResource("AtlasTexture_qguq5"), SubResource("AtlasTexture_f8gjx"), SubResource("AtlasTexture_bamnf")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_y6v7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y6v7n")
