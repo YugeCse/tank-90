@@ -26,13 +26,14 @@ region = Rect2(3, 3, 26, 26)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6v7n"]
 size = Vector2(28, 28)
 
-[node name="PlayerTank" type="CharacterBody2D"]
+[node name="PlayerTank" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 collision_layer = 32
 collision_mask = 619
 platform_floor_layers = 4294966420
 platform_wall_layers = 107
 script = ExtResource("1_y6v7n")
 dirImages = Array[Texture2D]([SubResource("AtlasTexture_7134c"), SubResource("AtlasTexture_qguq5"), SubResource("AtlasTexture_f8gjx"), SubResource("AtlasTexture_bamnf")])
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_y6v7n")

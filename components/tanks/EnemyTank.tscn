@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://vaetahb8n7hx"]
+[gd_scene load_steps=9 format=3 uid="uid://vaetahb8n7hx"]
 
 [ext_resource type="Texture2D" uid="uid://bufbx8eyu1uti" path="res://resources/images/tankAll.png" id="1_n1koi"]
 [ext_resource type="Script" uid="uid://o4advwl5utrg" path="res://components/tanks/enemy_tank.gd" id="1_qgtpy"]
@@ -19,17 +19,36 @@ region = Rect2(67, 35, 26, 26)
 atlas = ExtResource("1_n1koi")
 region = Rect2(99, 35, 26, 26)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_82pn2"]
+atlas = ExtResource("1_n1koi")
+region = Rect2(35, 35, 26, 26)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qgtpy"]
 size = Vector2(28, 28)
 
-[node name="EnemyTank" type="CharacterBody2D"]
+[node name="EnemyTank" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 collision_layer = 64
 collision_mask = 287
+up_direction = Vector2(0, 1)
+platform_floor_layers = 4294966420
+platform_wall_layers = 875
 script = ExtResource("1_qgtpy")
 tankType = 1
 dirImages = Array[Texture2D]([SubResource("AtlasTexture_n1koi"), SubResource("AtlasTexture_m2w5f"), SubResource("AtlasTexture_e6eqh"), SubResource("AtlasTexture_1unpi")])
+sprite = NodePath("Sprite2D")
+
+[node name="MoveTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+autostart = true
+ignore_time_scale = true
+
+[node name="ShootTimer" type="Timer" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_82pn2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qgtpy")
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]

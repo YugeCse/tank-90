@@ -12,9 +12,15 @@ var tankType: Enums.TankType
 var dirImages: Array[Texture2D]
 
 # 速度
+@export
 var speed: float = 100.0
 
+# 生命数
+@export
+var life: int = 1
+
 # 要绑定的精灵对象
+@export
 var sprite: Sprite2D
 
 # 上一次的有效方向
@@ -28,7 +34,7 @@ func ready_for_player():
 	update_sprite_by_dir(_lastEffectiveVelocity)
 
 # 处理方向控制
-func handle_input_process_for_player(dt: float) -> void:
+func handle_input_process_for_player() -> void:
 	# 获取输入方向向量（已标准化）
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_direction

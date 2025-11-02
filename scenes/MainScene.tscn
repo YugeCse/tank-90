@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjmeeamhfrc5k"]
+[gd_scene load_steps=5 format=3 uid="uid://bjmeeamhfrc5k"]
 
 [ext_resource type="Script" uid="uid://dmfh2ke02c4m6" path="res://scenes/main_scene.gd" id="1_echbf"]
 [ext_resource type="Script" uid="uid://k6e6h42edvtq" path="res://components/map/war_map.gd" id="2_611at"]
 [ext_resource type="PackedScene" uid="uid://rw1sek6mi12e" path="res://components/tanks/PlayerTank.tscn" id="3_c6dvc"]
+[ext_resource type="PackedScene" uid="uid://vaetahb8n7hx" path="res://components/tanks/EnemyTank.tscn" id="4_611at"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_echbf")
@@ -34,4 +35,5 @@ script = ExtResource("2_611at")
 metadata/_custom_type_script = "uid://k6e6h42edvtq"
 
 [node name="PlayerTank" parent="Camera2D" instance=ExtResource("3_c6dvc")]
-tankType = 0
+
+[node name="EnemyTank" parent="Camera2D" instance=ExtResource("4_611at")]
