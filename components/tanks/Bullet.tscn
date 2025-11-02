@@ -27,6 +27,8 @@ region = Rect2(81, 96, 4, 5)
 size = Vector2(6, 6)
 
 [node name="Bullet" type="CharacterBody2D"]
+collision_layer = 256
+collision_mask = 579
 script = ExtResource("1_bo8qh")
 speed = 150.0
 bulletImgs = Array[AtlasTexture]([SubResource("AtlasTexture_vg3hx"), SubResource("AtlasTexture_wn3ne"), SubResource("AtlasTexture_axvhh"), SubResource("AtlasTexture_3lxl1")])

@@ -17,5 +17,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_move_timer_timeout() -> void:
 	var next_dir = _all_dirs[randi() % 4]
-	velocity = next_dir #设置当前的方向
-	self.update_sprite_by_dir(next_dir) #更新当前精灵图片
+	velocity = next_dir # 设置当前的方向
+	self.update_sprite_by_dir(next_dir) # 更新当前精灵图片
