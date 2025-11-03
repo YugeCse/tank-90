@@ -1,10 +1,28 @@
 extends Node
 
+################
+#              #
+#   设计稿信息   #
+#              #
+#################
+
+# 设计稿中心-x: 375
+const DESIGN_CX = 375
+
+# 设计稿中心-y: 208
+const DESIGN_CY = 208
+
 # 设计宽度：750
 const DESIGN_WIDTH = 750
 
 # 设计高度：416
 const DESIGN_HEIGHT = 416
+
+################
+#              #
+# 地图和精灵信息 #
+#              #
+#################
 
 # 战场精灵大小：32
 const WAR_SPRITE_SIZE = 32

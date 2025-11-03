@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name BaseBullet
 
 @export
-var speed: float = 120
+var speed: float = 150
 
 @export
 var bulletImgs: Array[AtlasTexture]

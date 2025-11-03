@@ -43,6 +43,8 @@ autostart = true
 ignore_time_scale = true
 
 [node name="ShootTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_82pn2")
@@ -51,3 +53,4 @@ texture = SubResource("AtlasTexture_82pn2")
 shape = SubResource("RectangleShape2D_qgtpy")
 
 [connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
