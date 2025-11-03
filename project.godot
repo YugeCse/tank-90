@@ -25,6 +25,8 @@ StageLevels="*res://common/stage_levels.gd"
 
 window/size/viewport_width=1500
 window/size/viewport_height=832
+window/size/resizable=false
+window/size/borderless=true
 window/stretch/mode="viewport"
 window/stretch/scale=2.0
 window/vsync/vsync_mode=0
