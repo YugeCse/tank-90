@@ -35,5 +35,7 @@ script = ExtResource("2_611at")
 metadata/_custom_type_script = "uid://k6e6h42edvtq"
 
 [node name="PlayerTank" parent="Camera2D" instance=ExtResource("3_c6dvc")]
+position = Vector2(183, 396)
 
 [node name="EnemyTank" parent="Camera2D" instance=ExtResource("4_611at")]
+position = Vector2(563, 19)

@@ -4,7 +4,7 @@ extends Node
 const DESIGN_WIDTH = 750
 
 # 设计高度：416
-const DESIGON_HEIGHT = 416
+const DESIGN_HEIGHT = 416
 
 # 战场精灵大小：32
 const WAR_SPRITE_SIZE = 32

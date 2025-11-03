@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://r8bbm03ecnbw"]
+
+[ext_resource type="Texture2D" uid="uid://bufbx8eyu1uti" path="res://resources/images/tankAll.png" id="1_05dnt"]
+[ext_resource type="Script" uid="uid://c8a0ih5bill3c" path="res://components/bom/bullet_bom.gd" id="2_4uf5c"]
+[ext_resource type="AudioStream" uid="uid://d11b078cnf3kc" path="res://resources/audio/bulletCrack.mp3" id="3_ev6ie"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05dnt"]
+atlas = ExtResource("1_05dnt")
+region = Rect2(321, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uf5c"]
+atlas = ExtResource("1_05dnt")
+region = Rect2(353, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev6ie"]
+atlas = ExtResource("1_05dnt")
+region = Rect2(385, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f2b4s"]
+animations = [{
+"frames": [{
+"duration": 0.05,
+"texture": SubResource("AtlasTexture_05dnt")
+}, {
+"duration": 0.05,
+"texture": SubResource("AtlasTexture_4uf5c")
+}, {
+"duration": 0.05,
+"texture": SubResource("AtlasTexture_ev6ie")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BulletBom" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_f2b4s")
+autoplay = "default"
+script = ExtResource("2_4uf5c")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ev6ie")
+autoplay = true
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

@@ -9,11 +9,9 @@ func _physics_process(delta: float) -> void:
 	self.set_position_limits()
 	var collider = move_and_collide(velocity * speed * delta)
 	if not collider: return
-	if not collider.has_method('get_parent'): return
-	var obj = collider.get_parent()
-	if obj and obj is BaseTank:
+	if collider and collider is BaseTank:
 		velocity = Vector2.ZERO
-		obj.velocity = Vector2.ZERO
+		collider.velocity = Vector2.ZERO
 
 func _on_move_timer_timeout() -> void:
 	var next_dir = _all_dirs[randi() % 4]

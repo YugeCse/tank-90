@@ -73,7 +73,20 @@ func update_sprite_by_dir(newDir: Vector2):
 # 射击方法
 func shoot():
 	if _lastEffectiveVelocity == Vector2.ZERO: return
-	var bullet = preload("res://components/tanks/Bullet.tscn").instantiate() as Bullet
+	var bullet: BaseBullet
+	if self is PlayerTank:
+		bullet = preload("res://components/bullet/PlayerBullet.tscn").instantiate() as PlayerBullet
+	elif self is EnemyTank:
+		bullet = preload("res://components/bullet/EnemyBullet.tscn").instantiate() as EnemyBullet
+	if not bullet: return
 	bullet.velocity = _lastEffectiveVelocity
 	bullet.position = global_position
 	get_tree().current_scene.add_child(bullet)
+
+# 受打击
+func hitHurt():
+	pass
+
+# 大爆炸
+func bigBom():
+	pass
