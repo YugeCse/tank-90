@@ -3,7 +3,6 @@ extends EnemyTank
 class_name Enemy2Tank
 
 func _ready() -> void:
-	sprite = $Sprite2D
 	velocity = Vector2.ZERO
 	self.update_sprite_by_dir(Vector2.DOWN)
 

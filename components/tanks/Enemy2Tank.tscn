@@ -26,7 +26,7 @@ region = Rect2(35, 66, 26, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gipbj"]
 size = Vector2(28, 28)
 
-[node name="Enemy2Tank" type="CharacterBody2D"]
+[node name="Enemy2Tank" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 collision_layer = 64
 collision_mask = 363
 platform_floor_layers = 4294966420
@@ -34,6 +34,7 @@ platform_wall_layers = 107
 script = ExtResource("1_gipbj")
 tankType = 3
 dirImages = Array[Texture2D]([SubResource("AtlasTexture_fyfma"), SubResource("AtlasTexture_w48t8"), SubResource("AtlasTexture_arwpi"), SubResource("AtlasTexture_ed2mj")])
+sprite = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://o4advwl5utrg"
 
 [node name="MoveTimer" type="Timer" parent="."]

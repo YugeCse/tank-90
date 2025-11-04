@@ -1,7 +1,5 @@
 extends EnemyTank
 
-class_name Enemy0Tank
-
 func _ready() -> void:
 	velocity = Vector2.ZERO
 	self.update_sprite_by_dir(Vector2.DOWN)

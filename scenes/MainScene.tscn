@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjmeeamhfrc5k"]
+[gd_scene load_steps=9 format=3 uid="uid://bjmeeamhfrc5k"]
 
 [ext_resource type="Script" uid="uid://dmfh2ke02c4m6" path="res://scenes/main_scene.gd" id="1_echbf"]
 [ext_resource type="Script" uid="uid://k6e6h42edvtq" path="res://components/map/war_map.gd" id="2_611at"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cfv1ccagetabm" path="res://components/tanks/Enemy0Tank.tscn" id="4_611at"]
 [ext_resource type="PackedScene" uid="uid://ckdy0tqxkrb83" path="res://components/tanks/Enemy1Tank.tscn" id="5_k24pf"]
 [ext_resource type="PackedScene" uid="uid://c3wyev787qdw4" path="res://components/tanks/Enemy2Tank.tscn" id="6_ygjfp"]
+[ext_resource type="PackedScene" uid="uid://cl56edpx61ipc" path="res://components/tanks/Enemy3Tank.tscn" id="7_1wiy7"]
+[ext_resource type="PackedScene" uid="uid://cuimv1niluy0g" path="res://components/tanks/Enemy4Tank.tscn" id="8_u1u68"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_echbf")
@@ -47,3 +49,9 @@ position = Vector2(185, 15)
 
 [node name="Enemy2Tank" parent="Camera2D" instance=ExtResource("6_ygjfp")]
 position = Vector2(569, 15)
+
+[node name="Enemy3Tank" parent="Camera2D" instance=ExtResource("7_1wiy7")]
+position = Vector2(182, 94)
+
+[node name="Enemy4Tank" parent="Camera2D" instance=ExtResource("8_u1u68")]
+position = Vector2(568, 86)

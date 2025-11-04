@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://cl56edpx61ipc"]
+
+[ext_resource type="Script" uid="uid://clet6ccoprfcm" path="res://components/tanks/enemy3_tank.gd" id="1_kuagq"]
+[ext_resource type="Texture2D" uid="uid://bufbx8eyu1uti" path="res://resources/images/tankAll.png" id="2_kuagq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuagq"]
+atlas = ExtResource("2_kuagq")
+region = Rect2(131, 66, 26, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsu2r"]
+atlas = ExtResource("2_kuagq")
+region = Rect2(163, 66, 26, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t724e"]
+atlas = ExtResource("2_kuagq")
+region = Rect2(194, 67, 28, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u4lg"]
+atlas = ExtResource("2_kuagq")
+region = Rect2(226, 67, 28, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7ifp"]
+atlas = ExtResource("2_kuagq")
+region = Rect2(163, 66, 26, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsu2r"]
+size = Vector2(28, 28)
+
+[node name="Enemy3Tank" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+collision_layer = 64
+collision_mask = 363
+platform_floor_layers = 4294967188
+platform_wall_layers = 107
+script = ExtResource("1_kuagq")
+tankType = 4
+dirImages = Array[Texture2D]([SubResource("AtlasTexture_kuagq"), SubResource("AtlasTexture_tsu2r"), SubResource("AtlasTexture_t724e"), SubResource("AtlasTexture_0u4lg")])
+speed = 90.0
+sprite = NodePath("Sprite2D")
+metadata/_custom_type_script = "uid://o4advwl5utrg"
+
+[node name="MoveTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ShootTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_g7ifp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tsu2r")
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
