@@ -40,7 +40,6 @@ func handle_input_process_for_player() -> void:
 	velocity = input_direction
 	if input_direction != Vector2.ZERO:
 		update_sprite_by_dir(input_direction)
-		_lastEffectiveVelocity = input_direction
 	set_position_limits() # 设置坐标数据限制
 
 # 设置坐标数据限制
@@ -68,6 +67,7 @@ func update_sprite_by_dir(newDir: Vector2):
 	elif newDir == Vector2.RIGHT:
 		index = 3
 	else: return # 错误的方向不设置
+	_lastEffectiveVelocity = newDir
 	sprite.texture = dirImages[index]
 
 # 射击方法
@@ -75,9 +75,13 @@ func shoot():
 	if _lastEffectiveVelocity == Vector2.ZERO: return
 	var bullet: BaseBullet
 	if self is PlayerTank:
-		bullet = preload("res://components/bullet/PlayerBullet.tscn").instantiate() as PlayerBullet
+		bullet = preload("res://components/bullet/PlayerBullet.tscn") \
+			.instantiate() as PlayerBullet
 	elif self is EnemyTank:
-		bullet = preload("res://components/bullet/EnemyBullet.tscn").instantiate() as EnemyBullet
+		bullet = preload("res://components/bullet/EnemyBullet.tscn") \
+			.instantiate() as EnemyBullet
+		if self is Enemy1Tank: #移动最快的坦克
+			bullet.speed = 260
 	if not bullet: return
 	bullet.velocity = _lastEffectiveVelocity
 	bullet.position = global_position

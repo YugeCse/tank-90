@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://cfv1ccagetabm"]
+
+[ext_resource type="Script" uid="uid://dosojvkfrphgk" path="res://components/tanks/enemy0_tank.gd" id="1_eb6wy"]
+[ext_resource type="Texture2D" uid="uid://bufbx8eyu1uti" path="res://resources/images/tankAll.png" id="2_eb6wy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb6wy"]
+atlas = ExtResource("2_eb6wy")
+region = Rect2(3, 35, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyios"]
+atlas = ExtResource("2_eb6wy")
+region = Rect2(35, 35, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbaag"]
+atlas = ExtResource("2_eb6wy")
+region = Rect2(67, 35, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pgxv"]
+atlas = ExtResource("2_eb6wy")
+region = Rect2(99, 35, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7ias"]
+atlas = ExtResource("2_eb6wy")
+region = Rect2(35, 35, 26, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i48yb"]
+size = Vector2(28, 28)
+
+[node name="Enemy0Tank" type="CharacterBody2D"]
+collision_layer = 64
+collision_mask = 363
+platform_floor_layers = 4294966420
+platform_wall_layers = 875
+script = ExtResource("1_eb6wy")
+tankType = 1
+dirImages = Array[Texture2D]([SubResource("AtlasTexture_eb6wy"), SubResource("AtlasTexture_jyios"), SubResource("AtlasTexture_kbaag"), SubResource("AtlasTexture_5pgxv")])
+metadata/_custom_type_script = "uid://o4advwl5utrg"
+
+[node name="MoveTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ShootTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_b7ias")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_i48yb")
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

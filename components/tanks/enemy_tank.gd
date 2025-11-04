@@ -5,7 +5,7 @@ class_name EnemyTank
 # 所有方向的集合
 var _all_dirs = [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT]
 
-func _physics_process(delta: float) -> void:
+func handle_physics_process(delta: float) -> void:
 	self.set_position_limits()
 	var collider = move_and_collide(velocity * speed * delta)
 	if not collider: return
@@ -13,14 +13,13 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		collider.velocity = Vector2.ZERO
 
-func _on_move_timer_timeout() -> void:
+func on_move_timer_timeout(timer: Timer) -> void:
 	var next_dir = _all_dirs[randi() % 4]
 	velocity = next_dir # 设置当前的方向
 	_lastEffectiveVelocity = next_dir
 	self.update_sprite_by_dir(next_dir) # 更新当前精灵图片
-	$MoveTimer.wait_time = randi() % 5 + 1
+	timer.wait_time = randi() % 5 + 1
 
-func _on_shoot_timer_timeout() -> void:
+func on_shoot_timer_timeout(timer: Timer) -> void:
 	shoot()
-	$MoveTimer.wait_time = randi() % 5 + 1
-	pass # Replace with function body.
+	timer.wait_time = randi() % 5 + 1
