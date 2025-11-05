@@ -35,6 +35,16 @@ window/vsync/vsync_mode=0
 
 project/assembly_name="tank90"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/git_bash_here/plugin.cfg")
+
+[global_group]
+
+EnemyTank=""
+PlayerTank=""
+Prop=""
+
 [input]
 
 ui_left={
@@ -84,6 +94,7 @@ ui_shoot={
 2d_physics/layer_8="prop_food"
 2d_physics/layer_9="player_tank_bullet"
 2d_physics/layer_10="enemy_tank_bullet"
+2d_physics/layer_11="boss"
 
 [rendering]
 

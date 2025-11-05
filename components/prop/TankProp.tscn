@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://bhd8xevmtae2f"]
+
+[ext_resource type="Texture2D" uid="uid://bufbx8eyu1uti" path="res://resources/images/tankAll.png" id="1_v1hi7"]
+[ext_resource type="Script" uid="uid://c06ysnaj5a2lo" path="res://components/prop/tank_prop.gd" id="1_vue0p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni6ve"]
+atlas = ExtResource("1_v1hi7")
+region = Rect2(376, 110, 30, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_362fv"]
+atlas = ExtResource("1_v1hi7")
+region = Rect2(256, 110, 30, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0618p"]
+atlas = ExtResource("1_v1hi7")
+region = Rect2(286, 110, 31, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf46t"]
+atlas = ExtResource("1_v1hi7")
+region = Rect2(316, 110, 30, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bil3d"]
+atlas = ExtResource("1_v1hi7")
+region = Rect2(346, 110, 30, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn0c0"]
+atlas = ExtResource("1_v1hi7")
+region = Rect2(376, 110, 30, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vue0p"]
+size = Vector2(32, 32)
+
+[node name="TankProp" type="Sprite2D" node_paths=PackedStringArray("sprite") groups=["Prop"]]
+texture = SubResource("AtlasTexture_ni6ve")
+script = ExtResource("1_vue0p")
+score = 200
+sprite = NodePath(".")
+propAtlasTextures = {
+0: SubResource("AtlasTexture_362fv"),
+1: SubResource("AtlasTexture_0618p"),
+2: SubResource("AtlasTexture_pf46t"),
+3: SubResource("AtlasTexture_bil3d"),
+4: SubResource("AtlasTexture_mn0c0")
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 128
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_vue0p")

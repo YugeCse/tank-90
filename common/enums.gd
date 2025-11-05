@@ -1,5 +1,6 @@
 extends Node
 
+## 坦克类型
 enum TankType {
  PLAYER,
  ENEMY_0,
@@ -9,6 +10,7 @@ enum TankType {
  ENEMY_4
 }
 
+## 地图地砖类型
 enum MapTileType {
 	MUD_WALL,
  	STEEL_WALL,
@@ -18,8 +20,8 @@ enum MapTileType {
 	NONE
 }
 
-# 根据数据获取地砖类型
-# 1：水泥墙 2：铁墙 3：草 4：水 5：冰 9：家
+## 根据数据获取地砖类型
+## 1：水泥墙 2：铁墙 3：草 4：水 5：冰 9：家
 func get_map_title_type(data: int) -> MapTileType:
 	if data == 2:
 		return MapTileType.STEEL_WALL
@@ -32,3 +34,13 @@ func get_map_title_type(data: int) -> MapTileType:
 	elif data == 5:
 		return MapTileType.ICE
 	return MapTileType.NONE
+
+## 道具类型
+enum PropType {
+	TANK,
+	TIMER,
+	SHOVEL,
+	BOM,
+	STAR,
+	HAT
+}
