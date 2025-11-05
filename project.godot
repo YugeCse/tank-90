@@ -17,8 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Enums="*res://common/enums.gd"
+GlobalConfig="*res://common/global_config.gd"
 Constants="*res://common/constants.gd"
+Enums="*res://common/enums.gd"
 StageLevels="*res://common/stage_levels.gd"
 
 [display]
@@ -34,10 +35,6 @@ window/vsync/vsync_mode=0
 [dotnet]
 
 project/assembly_name="tank90"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/git_bash_here/plugin.cfg")
 
 [global_group]
 

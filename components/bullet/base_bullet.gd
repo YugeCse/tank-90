@@ -35,7 +35,7 @@ func handle_physic_process(\
 			elif parent is IceMapTile: return
 		elif target_collider is CharacterBody2D:
 			if target_collider is BaseTank:
-				print('子弹与坦克发生碰撞')
+				target_collider.hurt()
 	show_bom_effect(position) # 从树节点上删除
 
 # 根据方向更新子弹图案

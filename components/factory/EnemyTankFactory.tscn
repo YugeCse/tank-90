@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://btwbf5p7keow1"]
 
-[ext_resource type="Script" uid="uid://x57nx4y5e8kb" path="res://components/tanks/enemy_tank_factory.gd" id="1_xikxd"]
+[ext_resource type="Script" uid="uid://x57nx4y5e8kb" path="res://components/factory/enemy_tank_factory.gd" id="1_xikxd"]
 
 [node name="EnemyTankFactory" type="Node2D"]
 script = ExtResource("1_xikxd")

@@ -23,11 +23,18 @@ var life: int = 1
 @export
 var sprite: Sprite2D
 
+var audioPlayer: AudioStreamPlayer
+
 # 上一次的有效方向
 var _lastEffectiveVelocity: Vector2 = Vector2.UP
 
+func read_for_common():
+	audioPlayer = AudioStreamPlayer.new()
+	add_child(audioPlayer)
+
 # 为玩家的准备逻辑
 func ready_for_player():
+	read_for_common()
 	set_process_input(true)
 	if tankType != Enums.TankType.PLAYER:
 		_lastEffectiveVelocity = Vector2.DOWN
@@ -88,9 +95,20 @@ func shoot():
 	get_tree().current_scene.add_child(bullet)
 
 # 受打击
-func hitHurt():
-	pass
+func hurt():
+	if life > 0:
+		life-=1
+	if life != 0:
+		audioPlayer.stream = load("res://resources/audio/attack.mp3")
+		audioPlayer.play()
+	else: bigBom()
 
 # 大爆炸
 func bigBom():
-	pass
+	get_tree().current_scene\
+		.add_child(TankBom.create(position))
+	if self is EnemyTank:
+		audioPlayer.stream = load("res://resources/audio/tankCrack.mp3")
+	elif self is PlayerTank:
+		audioPlayer.stream = load('res://resources/audio/playerCrack.mp3')
+	queue_free() #从节点中删除

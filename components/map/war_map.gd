@@ -6,6 +6,10 @@ class_name WarMap
 var stage: int
 
 func _ready() -> void:
+	if stage < 0:
+		stage = 0
+	elif stage >= StageLevels.STAGE_MAPS.size():
+		stage = StageLevels.STAGE_MAPS.size() - 1
 	_drawMapTiles(stage) #绘制地图瓷砖集合
 
 # 绘制地图瓷砖集合

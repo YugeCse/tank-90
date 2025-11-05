@@ -37,7 +37,7 @@ dirImages = Array[Texture2D]([SubResource("AtlasTexture_eb6wy"), SubResource("At
 sprite = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://o4advwl5utrg"
 
-[node name="MoveTimer" type="Timer" parent="." groups=["EnemyTank"]]
+[node name="MoveTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="ShootTimer" type="Timer" parent="."]

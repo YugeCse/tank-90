@@ -3,6 +3,7 @@ extends EnemyTank
 class_name Enemy1Tank
 
 func _ready() -> void:
+	self.read_for_common()
 	velocity = Vector2.ZERO
 	self.update_sprite_by_dir(Vector2.DOWN)
 

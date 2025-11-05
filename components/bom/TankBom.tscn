@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8mlpbmowju50"]
+
+[ext_resource type="Script" uid="uid://1kry4gdgc7dm" path="res://components/bom/tank_bom.gd" id="1_d46mj"]
+[ext_resource type="Texture2D" uid="uid://celfox1yjhn1s" path="res://resources/textures/tank_bom0.tres" id="1_gk7al"]
+[ext_resource type="Texture2D" uid="uid://delnhw5keheit" path="res://resources/textures/tank_bom1.tres" id="2_e45sm"]
+[ext_resource type="Texture2D" uid="uid://bj3ciat72j00m" path="res://resources/textures/tank_bom2.tres" id="3_1s31h"]
+[ext_resource type="Texture2D" uid="uid://0s5qq857rd28" path="res://resources/textures/tank_bom3.tres" id="4_3tagm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d46mj"]
+animations = [{
+"frames": [{
+"duration": 0.1,
+"texture": ExtResource("1_gk7al")
+}, {
+"duration": 0.15,
+"texture": ExtResource("2_e45sm")
+}, {
+"duration": 0.12,
+"texture": ExtResource("3_1s31h")
+}, {
+"duration": 0.1,
+"texture": ExtResource("4_3tagm")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TankBom" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_d46mj")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+script = ExtResource("1_d46mj")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
