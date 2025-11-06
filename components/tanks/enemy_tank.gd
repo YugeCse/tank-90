@@ -23,33 +23,3 @@ func on_move_timer_timeout(timer: Timer) -> void:
 func on_shoot_timer_timeout(timer: Timer) -> void:
 	shoot()
 	timer.wait_time = randi() % 5 + 1
-
-## 创建敌方坦克
-static func create(location: Vector2, type: Enums.TankType) -> EnemyTank:
-	assert(type != Enums.TankType.PLAYER)
-	if type == Enums.TankType.ENEMY_0:
-		var tank = preload('res://components/tanks/Enemy0Tank.tscn')\
-			.instantiate() as Enemy0Tank
-		tank.position = location
-		return tank
-	elif type == Enums.TankType.ENEMY_1:
-		var tank = preload("res://components/tanks/Enemy1Tank.tscn")\
-			.instantiate() as Enemy1Tank
-		tank.position = location
-		return tank
-	elif type == Enums.TankType.ENEMY_2:
-		var tank = preload("res://components/tanks/Enemy2Tank.tscn")\
-			.instantiate() as Enemy2Tank
-		tank.position = location
-		return tank
-	elif type == Enums.TankType.ENEMY_3:
-		var tank = preload('res://components/tanks/Enemy3Tank.tscn')\
-			.instantiate() as Enemy3Tank
-		tank.position = location
-		return tank
-	elif type == Enums.TankType.ENEMY_4:
-		var tank = preload('res://components/tanks/Enemy4Tank.tscn')\
-			.instantiate() as Enemy4Tank
-		tank.position = location
-		return tank
-	return null

@@ -76,6 +76,19 @@ func update_sprite_by_dir(newDir: Vector2):
 	else: return # 错误的方向不设置
 	_lastEffectiveVelocity = newDir
 	sprite.texture = dirImages[index]
+	
+func get_global_rect() -> Rect2:
+	# 获取精灵的本地矩形，然后转换为全局坐标
+	var local_rect = sprite.get_rect()
+	var global_pos = sprite.global_position
+	
+	# 根据 centered 属性调整矩形位置
+	if sprite.centered:
+		# 中心锚点：矩形从中心向四周扩展
+		return Rect2(global_pos - local_rect.size * 0.5, local_rect.size)
+	else:
+		# 左上角锚点：矩形从位置点开始
+		return Rect2(global_pos, local_rect.size)
 
 # 射击方法
 func shoot():

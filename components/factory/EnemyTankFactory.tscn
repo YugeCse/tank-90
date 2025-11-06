@@ -1,12 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://btwbf5p7keow1"]
+[gd_scene load_steps=7 format=3 uid="uid://btwbf5p7keow1"]
 
 [ext_resource type="Script" uid="uid://x57nx4y5e8kb" path="res://components/factory/enemy_tank_factory.gd" id="1_xikxd"]
+[ext_resource type="PackedScene" uid="uid://cfv1ccagetabm" path="res://components/tanks/Enemy0Tank.tscn" id="2_xj1t1"]
+[ext_resource type="PackedScene" uid="uid://ckdy0tqxkrb83" path="res://components/tanks/Enemy1Tank.tscn" id="3_lxp17"]
+[ext_resource type="PackedScene" uid="uid://c3wyev787qdw4" path="res://components/tanks/Enemy2Tank.tscn" id="4_xvw5d"]
+[ext_resource type="PackedScene" uid="uid://cl56edpx61ipc" path="res://components/tanks/Enemy3Tank.tscn" id="5_1wuqe"]
+[ext_resource type="PackedScene" uid="uid://cuimv1niluy0g" path="res://components/tanks/Enemy4Tank.tscn" id="6_w33yo"]
 
 [node name="EnemyTankFactory" type="Node2D"]
 script = ExtResource("1_xikxd")
+enemy_tank0_scene = ExtResource("2_xj1t1")
+enemy_tank1_scene = ExtResource("3_lxp17")
+enemy_tank2_scene = ExtResource("4_xvw5d")
+enemy_tank3_scene = ExtResource("5_1wuqe")
+enemy_tank4_scene = ExtResource("6_w33yo")
 
 [node name="FactoryTimer" type="Timer" parent="."]
-wait_time = 2.0
 autostart = true
 
 [connection signal="timeout" from="FactoryTimer" to="." method="_on_factory_timer_timeout"]
