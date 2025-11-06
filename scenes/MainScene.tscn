@@ -9,6 +9,7 @@
 [node name="MainScene" type="Node2D" node_paths=PackedStringArray("warMap")]
 script = ExtResource("1_echbf")
 warMap = NodePath("Camera2D/WarMap")
+playerTankScene = ExtResource("3_c6dvc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
@@ -35,9 +36,6 @@ color = Color(0, 0, 0, 1)
 position = Vector2(167, 16)
 script = ExtResource("2_611at")
 metadata/_custom_type_script = "uid://k6e6h42edvtq"
-
-[node name="PlayerTank" parent="Camera2D" instance=ExtResource("3_c6dvc")]
-position = Vector2(183, 396)
 
 [node name="TankProp" parent="Camera2D" instance=ExtResource("9_x537r")]
 position = Vector2(304, 181)
