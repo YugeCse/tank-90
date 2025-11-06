@@ -122,6 +122,9 @@ func bigBom():
 		.add_child(TankBom.create(position))
 	if self is EnemyTank:
 		audioPlayer.stream = load("res://resources/audio/tankCrack.mp3")
+		GlobalEvents.on_enemy_tank_dead.emit(self.tankType)
 	elif self is PlayerTank:
 		audioPlayer.stream = load('res://resources/audio/playerCrack.mp3')
+		GlobalEvents.on_player_tank_dead.emit()
+	audioPlayer.play()
 	queue_free() #从节点中删除

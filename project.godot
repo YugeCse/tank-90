@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalConfig="*res://common/global_config.gd"
+GlobalEvents="*res://common/global_events.gd"
 Constants="*res://common/constants.gd"
 Enums="*res://common/enums.gd"
 StageLevels="*res://common/stage_levels.gd"

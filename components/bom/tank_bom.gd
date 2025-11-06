@@ -7,7 +7,7 @@ func _on_animation_finished() -> void:
 	
 	
 static func create(location: Vector2) -> TankBom:
-	var bom = preload("res://components/bom/TankBom.tscn")\
+	var bom = load("res://components/bom/TankBom.tscn")\
 		.instantiate() as TankBom
 	bom.position = location
 	return bom

@@ -55,7 +55,7 @@ func _on_factory_timer_timeout()->void:
 	_is_working = true
 	var enemy_nodes = get_tree().get_nodes_in_group('EnemyTank')
 	var diff = GlobalConfig.enemy_tank_per_count - enemy_nodes.size()
-	while diff > 0:
+	while diff > 0 and GlobalConfig.enemy_tank_total_count > 0:
 		if GlobalConfig.enemy_tank_total_count <= 0:
 			break #坦克生产完成，跳出循环
 		born_positions.shuffle()
@@ -69,7 +69,7 @@ func _on_factory_timer_timeout()->void:
 			enemy_nodes.append(tank)
 			diff -= 1
 			GlobalConfig.enemy_tank_total_count -= 1
-		else: break
+		else: break #无法生成坦克，推到下一个时间去
 	_is_working = false #标记任务已经完成了
 
 ## 生成一个坦克并添加到场景里
